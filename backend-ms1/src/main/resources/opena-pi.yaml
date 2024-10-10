@@ -1,0 +1,452 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /projectStates:
+    get:
+      summary: List all projectStates
+      operationId: listProjectStates
+      tags:
+        - projectStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectState
+      operationId: createProjectStates
+      tags:
+        - projectStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectStates/{projectStateId}:
+    get:
+      summary: Info for a specific projectState
+      operationId: showProjectStateById
+      tags:
+        - projectStates
+      parameters:
+        - name: projectStateId
+          in: path
+          required: true
+          description: The id of the projectState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /profiles:
+    get:
+      summary: List all profiles
+      operationId: listProfiles
+      tags:
+        - profiles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of profiles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Profiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a profile
+      operationId: createProfiles
+      tags:
+        - profiles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /profiles/{profileId}:
+    get:
+      summary: Info for a specific profile
+      operationId: showProfileById
+      tags:
+        - profiles
+      parameters:
+        - name: profileId
+          in: path
+          required: true
+          description: The id of the profile to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Profiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /students:
+    get:
+      summary: List all students
+      operationId: listStudents
+      tags:
+        - students
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of students
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Students'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a student
+      operationId: createStudents
+      tags:
+        - students
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /students/{studentId}:
+    get:
+      summary: Info for a specific student
+      operationId: showStudentById
+      tags:
+        - students
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          description: The id of the student to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Students'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /logins:
+    get:
+      summary: List all logins
+      operationId: listLogins
+      tags:
+        - logins
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of logins
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Logins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a login
+      operationId: createLogins
+      tags:
+        - logins
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /logins/{loginId}:
+    get:
+      summary: Info for a specific login
+      operationId: showLoginById
+      tags:
+        - logins
+      parameters:
+        - name: loginId
+          in: path
+          required: true
+          description: The id of the login to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Logins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projects:
+    get:
+      summary: List all projects
+      operationId: listProjects
+      tags:
+        - projects
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projects
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a project
+      operationId: createProjects
+      tags:
+        - projects
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projects/{projectId}:
+    get:
+      summary: Info for a specific project
+      operationId: showProjectById
+      tags:
+        - projects
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The id of the project to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  ProjectState:
+    type: "object"
+    required:
+      - id
+      - code
+      - label
+      - style
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      label:
+        type: string
+      style:
+        type: string
+  ProjectStates:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectState'
+  Profile:
+    type: "object"
+    required:
+      - id
+      - firstName
+      - lastName
+      - phoneNumber
+      - address
+      - photo
+    properties:
+      id:
+        type: int
+      firstName:
+        type: string
+      lastName:
+        type: string
+      phoneNumber:
+        type: string
+      address:
+        type: string
+      photo:
+        type: string
+  Profiles:
+    type: array
+    items:
+      $ref: '#/definitions/Profile'
+  Student:
+    type: "object"
+    required:
+      - id
+      - firstName
+      - lastName
+      - phoneNumber
+      - username
+      - accountNonExpired
+      - credentialsNonExpired
+      - enabled
+      - email
+      - password
+      - accountNonLocked
+      - passwordChanged
+    properties:
+      id:
+        type: int
+      firstName:
+        type: string
+      lastName:
+        type: string
+      phoneNumber:
+        type: string
+      username:
+        type: string
+      accountNonExpired:
+        type: boolean
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      email:
+        type: string
+      password:
+        type: string
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+  Students:
+    type: array
+    items:
+      $ref: '#/definitions/Student'
+  Login:
+    type: "object"
+    required:
+      - id
+      - email
+      - password
+    properties:
+      id:
+        type: int
+      email:
+        type: string
+      password:
+        type: string
+  Logins:
+    type: array
+    items:
+      $ref: '#/definitions/Login'
+  Project:
+    type: "object"
+    required:
+      - id
+      - name
+      - description
+      - startDate
+      - endDate
+      - status
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      description:
+        type: string
+      startDate:
+        type: date
+      endDate:
+        type: date
+      status:
+        type: string
+  Projects:
+    type: array
+    items:
+      $ref: '#/definitions/Project'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
